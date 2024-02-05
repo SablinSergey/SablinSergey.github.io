@@ -1,39 +1,81 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-   <title>Open webcam using JavaScript. </title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover, shrink-to-fit=no"/>
+
+    <title>Document</title>
+    <style>
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+            height: 100dvh;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #inputID {
+            width: 60%;
+        }
+
+        #ddID {
+            width:100%;
+            height: 100px;
+            overflow: auto;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+        #ddID.hidden {
+            display: none;
+        }
+
+    </style>
+
 </head>
 <body>
-   <h1>Open WebCam Using JavaScript</h1>
-   <br/>
-   <button id="startBtn" onclick="openCam()">Open Webcam</button>
-   <br/><br/>
-   <video id="videoCam"></video>
-   <script>
-      function openCam(){
-         let All_mediaDevices=navigator.mediaDevices
-         if (!All_mediaDevices || !All_mediaDevices.getUserMedia) {
-            console.log("getUserMedia() not supported.");
-            return;
-         }
-         All_mediaDevices.getUserMedia({
+    <input id="inputID" type="text"/>
+    <button id="buttonID" type="button">Button</button>
+    <div id="ddID" class="hidden">
+        <div id="ddInnerID">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>10</div>
+            <div>11</div>
+            <div>12</div>
+            <div>13</div>
+            <div>14</div>
+            <div>15</div>
+            <div>16</div>
+            <div>17</div>
+            <div>18</div>
+            <div>19</div>
+            <div>20</div>
+            <div>21</div>
+            <div>22</div>
+            <div>23</div>
+        </div>
+    </div>
+    <script>
+        window.document.querySelector('#buttonID').addEventListener('click', () => {
+            document.querySelector('#ddID').classList.toggle('hidden');
+            document.querySelector('#inputID').focus();
+        })
 
-            video: true
-         })
-         .then(function(vidStream) {
-            var video = document.getElementById('videoCam');
-            if ("srcObject" in video) {
-               video.srcObject = vidStream;
-            } else {
-               video.src = window.URL.createObjectURL(vidStream);
-            }
-            video.onloadedmetadata = function(e) {
-               video.play();
-            };
-         })
-         .catch(function(e) {
-            console.log(e.name + ": " + e.message);
-         });
-      }
-   </script>
+    </script>
 </body>
 </html>
