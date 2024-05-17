@@ -1,108 +1,81 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover, shrink-to-fit=no"/>
-
-    <title>Document</title>
-    <style>
-        html,
-        body {
-            padding: 0;
-            margin: 0;
-            height: 100dvh;
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        #inputID {
-            width: 60%;
-        }
-
-        #relBlockID {
-            position: relative;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        #ddID {
-            width: 80%;
-            height: 25vh;
-            overflow: hidden;
-            border: 1px solid black;
-            box-sizing: border-box;
-
-            position: absolute;
-            top: 25px;
-        }
-
-        #ddInnerID {
-            height: 25vh;
-            width: 100%;
-            overflow-y: auto;
-        }
-
-        #ddInnerInnerID {
-            min-height: 7344px;
-            width: 100%;
-        }
-
-        #ddID.hidden {
-            display: none;
-        }
-
-    </style>
-
-</head>
-<body>
-    <input id="inputID" type="text"/>
-    <div id="relBlockID">
-        <button id="buttonID" type="button">Button</button>
-        <div id="ddID" class="hidden">
-            <div id="ddInnerID">
-                <div id="ddInnerInnerID">
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                    <div>5</div>
-                    <div>6</div>
-                    <div>7</div>
-                    <div>8</div>
-                    <div>9</div>
-                    <div>10</div>
-                    <div>11</div>
-                    <div>12</div>
-                    <div>13</div>
-                    <div>14</div>
-                    <div>15</div>
-                    <div>16</div>
-                    <div>17</div>
-                    <div>18</div>
-                    <div>19</div>
-                    <div>20</div>
-                    <div>21</div>
-                    <div>22</div>
-                    <div>23</div>
-                </div>
-            </div>
-        </div>
+  <head>
+    <title>Web OTP API Simplest</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>div {font-family: sans-serif;}</style>
+  </head>
+  <body>
+    <h1>
+      The simplest Web OTP API demo
+    </h1>
+    <div>
+      Send an SMS that includes <pre><code>@web-otp.glitch.me #12345</code></pre> at the last line to this phone.
+    </div>
+    <div style="border:1px solid; padding: 5px; 10px; margin: 10px 0;">
+      <form action="/post" method="post">
+        Enter OTP here:
+        <input type="text" autocomplete="one-time-code" inputmode="numeric" name="one-time-code">
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+    <pre><code>
+&lt;input type="text" autocomplete="one-time-code" inputmode="numeric" /&gt;
+&lt;script&gt;
+if ('OTPCredential' in window) {
+  window.addEventListener('DOMContentLoaded', e =&gt; {
+    const input = document.querySelector('input[autocomplete="one-time-code"]');
+    if (!input) return;
+    const ac = new AbortController();
+    const form = input.closest('form');
+    if (form) {
+      form.addEventListener('submit', e =&gt; {
+        ac.abort();
+      });
+    }
+    navigator.credentials.get({
+      otp: { transport:['sms'] },
+      signal: ac.signal
+    }).then(otp =&gt; {
+      input.value = otp.code;
+      if (form) form.submit();
+    }).catch(err =&gt; {
+      console.log(err);
+    });
+  });
+}
+&lt;/script&gt;
+    </code></pre>
+    <div>
+      See the source code and play with it at <a href="https://glitch.com/edit/#!/web-otp">https://glitch.com/edit/#!/web-otp</a>
+    </div>
+    <div>
+      Learn more at <a href="http://web.dev/web-otp">http://web.dev/web-otp</a>.
     </div>
     <script>
-        window.document.querySelector('#buttonID').addEventListener('click', () => {
-            document.querySelector('#ddID').classList.toggle('hidden');
-            document.querySelector('#inputID').focus();
-        })
-
+    if ('OTPCredential' in window) {
+      window.addEventListener('DOMContentLoaded', e => {
+        const input = document.querySelector('input[autocomplete="one-time-code"]');
+        if (!input) return;
+        const ac = new AbortController();
+        const form = input.closest('form');
+        if (form) {
+          form.addEventListener('submit', e => {
+            ac.abort();
+          });
+        }
+        navigator.credentials.get({
+          otp: { transport:['sms'] },
+          signal: ac.signal
+        }).then(otp => {
+          input.value = otp.code;
+          if (form) form.submit();
+        }).catch(err => {
+          console.log(err);
+        });
+      });
+    }
     </script>
-</body>
+  </body>
 </html>
