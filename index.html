@@ -55,17 +55,20 @@ if ('OTPCredential' in window) {
       Learn more at <a href="http://web.dev/web-otp">http://web.dev/web-otp</a>.
     </div>
     <script>
+      alert('Hi!');
     if ('OTPCredential' in window) {
+      alert('OTPCredential is present!');
       window.addEventListener('DOMContentLoaded', e => {
+         alert('DOMContentLoaded!');
         const input = document.querySelector('input[autocomplete="one-time-code"]');
         if (!input) return;
         const ac = new AbortController();
-        const form = input.closest('form');
-        if (form) {
-          form.addEventListener('submit', e => {
-            ac.abort();
-          });
-        }
+        // const form = input.closest('form');
+        // if (form) {
+        //   form.addEventListener('submit', e => {
+        //     ac.abort();
+        //   });
+        // }
         navigator.credentials.get({
           otp: { transport:['sms'] },
           signal: ac.signal
@@ -73,7 +76,9 @@ if ('OTPCredential' in window) {
           alert('Code: ' + otp.code);
           // input.value = otp.code;
           // if (form) form.submit();
+           ac.abort();
         }).catch(err => {
+          alert('Err: ' + err.message);
           console.log(err);
         });
       });
