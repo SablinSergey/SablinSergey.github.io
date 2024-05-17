@@ -24,6 +24,7 @@
 &lt;input type="text" autocomplete="one-time-code" inputmode="numeric" /&gt;
 &lt;script&gt;
 if ('OTPCredential' in window) {
+      alert('OTPCredential')
   window.addEventListener('DOMContentLoaded', e =&gt; {
     const input = document.querySelector('input[autocomplete="one-time-code"]');
     if (!input) return;
@@ -55,6 +56,7 @@ if ('OTPCredential' in window) {
     </div>
     <script>
     if ('OTPCredential' in window) {
+      alert('OTPCredential')
       window.addEventListener('DOMContentLoaded', e => {
         const input = document.querySelector('input[autocomplete="one-time-code"]');
         if (!input) return;
