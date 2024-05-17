@@ -21,7 +21,7 @@
       </form>
     </div>
     <pre><code>
-&lt;input type="text" autocomplete="one-time-code" inputmode="numeric" /&gt;
+<!-- &lt;input type="text" autocomplete="one-time-code" inputmode="numeric" /&gt; -->
 <!-- &lt;script&gt;
 if ('OTPCredential' in window) {
   window.addEventListener('DOMContentLoaded', e =&gt; {
@@ -53,7 +53,7 @@ if ('OTPCredential' in window) {
     <div>
       Learn more at <a href="http://web.dev/web-otp">http://web.dev/web-otp</a>.
     </div>
-<!--     <script>
+    <script>
     if ('OTPCredential' in window) {
       window.addEventListener('DOMContentLoaded', e => {
         const input = document.querySelector('input[autocomplete="one-time-code"]');
@@ -69,13 +69,14 @@ if ('OTPCredential' in window) {
           otp: { transport:['sms'] },
           signal: ac.signal
         }).then(otp => {
-          input.value = otp.code;
-          if (form) form.submit();
+          alert('Code: ' + otp.code);
+          // input.value = otp.code;
+          // if (form) form.submit();
         }).catch(err => {
           console.log(err);
         });
       });
     }
-    </script> -->
+    </script>
   </body>
 </html>
