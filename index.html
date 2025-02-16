@@ -5,18 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Site before</title>
+    <title>Lock screen</title>
 
-    <!-- pwa -->
-    <link rel="manifest" href="/manifest.json" crossorigin="use-credentials"/>
-    <meta name="msapplication-starturl" content="/index.html"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-    <meta name="author" content="SS"/>
-    <meta name="application-name" content="SStest"/>
-    <meta name="theme-color" content="#090f1e" />
-    <meta name="msapplication-TileColor" content="#090f1e" />
-    <meta name="apple-mobile-web-app-title" content="SStest" />
     <style>
         html,
         body {
@@ -25,16 +15,53 @@
             height: 100%;
         }
         body {
-            background-color: yellow;
+            background-color: red;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 40px;
             font-family: monospace;
+            flex-direction: column;
+        }
+
+        button {
+            border-radius: 50%;
+            height: 100px;
+            width: 100px;
+            margin-top: 20px;
+            font-size: 22px;
+            cursor: pointer;
+            outline: inherit;
+            border: none;
+            background-color: antiquewhite;
         }
     </style>
 </head>
 <body>
-    Site Before
+    Lock Screen
+
+    <script>
+        function reload() {
+            document.location = `/index.html?${Date.now()}`;
+        }
+
+        function checkForReload() {
+            fetch(`/static/1.txt?${Date.now()}`)
+                .then((response) => response.text())
+                .then(
+                    (data) => {
+                        if (data.trim() !== 'hi') {
+                            throw new Error('Wrong content');
+                        }
+                    }
+                ).then(() => {
+                    reload();
+                }).catch(() => {
+                    setTimeout(() => checkForReload(), 10000);
+                })
+        }
+
+        checkForReload();
+    </script>
 </body>
 </html>
