@@ -1,33 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <title>Web OTP API Simplest</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>div {font-family: sans-serif;}</style>
-  </head>
-  <body>
-    <h1>
-      The simplest Web OTP API demo
-    </h1>
-    <div>
-      Send an SMS that includes <pre><code>@web-otp.glitch.me #12345</code></pre> at the last line to this phone.
-    </div>
-    <div style="border:1px solid; padding: 5px; 10px; margin: 10px 0;">
-      <form action="/post" method="post">
-        Enter OTP here:
-        <input type="text" inputmode="numeric" name="one-time-code">
-        <input type="submit" value="Submit">
-      </form>
-    </div>
-    <pre><code>
-&lt;input type="text" inputmode="numeric" /&gt;
-    </code></pre>
-    <div>
-      See the source code and play with it at <a href="https://glitch.com/edit/#!/web-otp">https://glitch.com/edit/#!/web-otp</a>
-    </div>
-    <div>
-      Learn more at <a href="http://web.dev/web-otp">http://web.dev/web-otp</a>.
-    </div>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Site before</title>
+
+    <!-- pwa -->
+    <link rel="manifest" href="/manifest.json" crossorigin="use-credentials"/>
+    <meta name="msapplication-starturl" content="/index.html"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="author" content="SS"/>
+    <meta name="application-name" content="SStest"/>
+    <meta name="theme-color" content="#090f1e" />
+    <meta name="msapplication-TileColor" content="#090f1e" />
+    <meta name="apple-mobile-web-app-title" content="SStest" />
+
+    <style>
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            background-color: yellow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+        }
+    </style>
+
+</head>
+<body>
+    Site Before
+</body>
 </html>
