@@ -1,40 +1,98 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Site after</title>
-
-    <!-- pwa -->
-    <link rel="manifest" href="/manifest.json" crossorigin="use-credentials"/>
-    <meta name="msapplication-starturl" content="/index.html"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-    <meta name="author" content="SS"/>
-    <meta name="application-name" content="SStest"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover, shrink-to-fit=no"
+    />
+    <title>SSSS</title>
+    <meta
+      name="description"
+      content="SSSS"
+    />
+    <link
+      rel="icon"
+      media="(prefers-color-scheme: light)"
+      type="image/png"
+      sizes="32x32"
+      href="./img/favicon/favicon-ls-32x32.png"
+    />
+    <link
+      rel="icon"
+      media="(prefers-color-scheme: light)"
+      type="image/png"
+      sizes="16x16"
+      href="./img/favicon/favicon-ls-16x16.png"
+    />
+    <link
+      rel="icon"
+      media="(prefers-color-scheme: dark)"
+      type="image/png"
+      sizes="32x32"
+      href="./img/favicon/favicon-ls-32x32.png"
+    />
+    <link
+      rel="icon"
+      media="(prefers-color-scheme: dark)"
+      type="image/png"
+      sizes="16x16"
+      href="./img/favicon/favicon-ls-16x16.png"
+    />
+    <meta name="author" content="SSSS" />
+    <meta name="application-name" content="SSSS" />
+    <meta name="apple-mobile-web-app-title" content="SSSS" />
+    <meta
+      name="msapplication-TileImage"
+      content="/img/favicon/msapplication-icon-144x144-ls.png"
+    />
+    <meta name="msapplication-starturl" content="/index.html" />
     <meta name="theme-color" content="#090f1e" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
     <meta name="msapplication-TileColor" content="#090f1e" />
-    <meta name="apple-mobile-web-app-title" content="SStest" />
-    <style>
-        html,
-        body {
-            padding: 0;
-            margin: 0;
-            height: 100%;
-        }
-        body {
-            background-color: green;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 40px;
-            font-family: monospace;
-        }
-    </style>
-</head>
-<body>
-    Site After
-</body>
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="root">
+          <h1 class="title">Technical maintenance</h1>
+          <p class="text">
+            Our website is currently undergoing technical&nbspmaintenance.
+            <br />
+            We apologize for any inconvenience caused
+          </p>
+        </div>
+      </section>
+    </main>
+    <section>
+      <div class="support-root">
+        <div class="support-text">24/7</div>
+        <button type="button" class="support-button" id="loader-support">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path
+              fill="currentColor"
+              d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z"
+            />
+          </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 576 512"
+            aria-hidden="true"
+            role="img"
+            class="icon icon-comments sm FixedSupportPanel_chatIcon_bho3A FixedSupportPanel_chatIcon_bho3A"
+          >
+            <path
+              d="M416 192c0-88.4-93.1-160-208-160S0 103.6 0 192c0 34.3 14.1 65.9 38 92-13.4 30.2-35.5 54.2-35.8 54.5-2.2 2.3-2.8 5.7-1.5 8.7S4.8 352 8 352c36.6 0 66.9-12.3 88.7-25 32.2 15.7 70.3 25 111.3 25 114.9 0 208-71.6 208-160zm122 220c23.9-26 38-57.7 38-92 0-66.9-53.5-124.2-129.3-148.1.9 6.6 1.3 13.3 1.3 20.1 0 105.9-107.7 192-240 192-10.8 0-21.3-.8-31.7-1.9C207.8 439.6 281.8 480 368 480c41 0 79.1-9.2 111.3-25 21.8 12.7 52.1 25 88.7 25 3.2 0 6.1-1.9 7.3-4.8 1.3-2.9.7-6.3-1.5-8.7-.3-.3-22.4-24.2-35.8-54.5z"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </section>
+  </body>
 </html>
